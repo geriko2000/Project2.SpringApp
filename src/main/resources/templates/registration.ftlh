@@ -3,7 +3,7 @@
 
 <@c.page>
     Add new user
-    ${message!}
+    ${message?ifExists}
     <@l.login "/registration" />
     <a href="/login">Вернуться на страницу входа</a>
 </@c.page>
