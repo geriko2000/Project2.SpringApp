@@ -1,9 +1,11 @@
 <#import "parts/common.ftlh" as c>
-<#import "parts/login.ftlh" as l>
 
 <@c.page>
     <div>
-        <@l.logout />
+        <form action="/logout" method="post">
+            <input type="hidden" name="_csrf" value="${_csrf.token}"/>
+            <input type="submit" value="Sign Out"/>
+        </form>
         <span><a href="/user">User list</a> </span>
     </div>
     <div>
@@ -17,7 +19,7 @@
     </div>
     <div>Список сообщений</div>
     <form method="get" action="/main">
-        <input type="text" name="filter" value="${filter?ifExists}">
+        <input type="text" name="filter" value="${filter!}">
         <button type="submit">Найти по тегу</button>
     </form>
     <#list messages as messages>

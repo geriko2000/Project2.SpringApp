@@ -20,7 +20,6 @@
                 <td>${user.password}</td>
                 <td><a href="/user/${user.id}">edit</a></td>
             </tr>
-
         </#list>
         </body>
     </table>
